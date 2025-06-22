@@ -100,7 +100,7 @@ button {
     align-items: center;
     gap: 10px;
     margin-top: auto;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
 }
 
 .content { 
@@ -135,4 +135,40 @@ button {
     font-size: 12px;
     margin-top: 2px;
     margin-bottom: 15px;
+}
+
+
+.simplebar-content-wrapper {
+    overflow: auto !important;
+}
+
+.simplebar-scrollbar:before {
+    background: rgb(205, 255, 98);
+}
+
+.simplebar-track.simplebar-vertical {
+  visibility: visible !important;
+  right: -15px;
+    width: 6px;
+  background: rgba(200, 200, 200, 0.2) !important;
+  border-radius: 4px;
+}
+
+.simplebar-track.simplebar-horizontal {
+  display: none;
+}
+
+.simplebar-scrollbar[style] {
+  visibility: visible !important;
+  background: rgb(205, 255, 98);
+}
+
+/* Фикс для hover-эффектов */
+.simplebar-scrollbar:hover {
+  background: #7A7A7A !important;
+}
+
+/* Отключаем анимацию исчезновения */
+.simplebar-scrollbar::before {
+  display: none !important;
 }

@@ -1,9 +1,6 @@
 .header {
     padding-top: 20px;
 }
-.header.--form-page {
-    padding-top: 25px;
-}
 .header__container {
 }
 .header__logo-link {

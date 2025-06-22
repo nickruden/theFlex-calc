@@ -120,10 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const months = selectedOptions.has("2-mounth") ? 12 : 10;
-    document.querySelector(".your-card__option[id='validPeriod']").innerHTML = document.querySelector(".your-card__option[id='validPeriod']").innerHTML.replace(
-        /\d+ месяцев/,
-        `${months} месяцев`
-      );
+    document.querySelector(".your-card__option[id='validPeriod']").innerHTML =
+      document
+        .querySelector(".your-card__option[id='validPeriod']")
+        .innerHTML.replace(/\d+ месяцев/, `${months} месяцев`);
     updateFreezingOption();
 
     const result = Math.round(total / months);
@@ -306,4 +306,10 @@ document.addEventListener("DOMContentLoaded", () => {
   recalculateTotal();
   updateFormData();
   checkFormPage();
+  
+  new SimpleBar(document.querySelector(".options__inner"), {
+    autoHide: false,
+    forceVisible: true,
+  });
+
 });

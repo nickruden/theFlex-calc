@@ -173,11 +173,13 @@
 
 .final-page__option {
     max-width: none;
-    top: auto;
     padding: 13px 20px;
     height: 52px;
     color: #F6F6F6;
     justify-content: flex-start;
+}
+.final-page__option .my-button__icon-wrap {
+    top: auto;
 }
 
 .my-button__texts {

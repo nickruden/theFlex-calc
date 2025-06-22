@@ -10,15 +10,17 @@
 
 
 @font-face {
-    font-family: "Manrope";
-    src: url("../assets/fonts/Manrope-Bold.ttf") format("truetype");
+    font-family: "TFManrope";
+    src: url("../assets/fonts/SuisseIntl-Regular.otf") format("opentype"),
+    url("../assets/fonts/_SuisseIntl-Regular.otf") format("opentype");
     font-style: normal;
     font-weight: 700;
 }
 
 @font-face {
-    font-family: "Manrope";
-    src: url("../assets/fonts/Manrope-ExtraBold.ttf") format("truetype");
+    font-family: "TFManrope";
+    src: url("../assets/fonts/SuisseIntl-Medium.otf") format("opentype"),
+    url("../assets/fonts/_SuisseIntl-Medium.otf") format("opentype");
     font-style: normal;
     font-weight: 800;
 }
@@ -27,9 +29,9 @@
 html,
 body {
     height: 100%;
-    font-family: 'Manrope';
+    font-family: 'TFManrope';
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 800;
     color: #FAFAFA;
     line-height: 14px;
     letter-spacing: -.02em;

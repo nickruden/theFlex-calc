@@ -173,6 +173,7 @@
 
 .final-page__option {
     max-width: none;
+    top: auto;
     padding: 13px 20px;
     height: 52px;
     color: #F6F6F6;

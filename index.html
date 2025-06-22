@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>theFlex</title>
+
+    <link rel="stylesheet" href="./styles/reset.css">
+    <link rel="stylesheet" href="./styles/components/header.css">
+    <link rel="stylesheet" href="./styles/components/desktop-block.css">
+
+    <link rel="stylesheet" href="./styles/UI/button.css">
+    <link rel="stylesheet" href="./styles/UI/input.css">
+    <link rel="stylesheet" href="./styles/UI/select.css">
+    <link rel="stylesheet" href="./styles/UI/checkbox.css">
+    <link rel="stylesheet" href="./styles/UI/switch.css">
+
+    <link rel="stylesheet" href="./styles/pages/form-page.css">
+    <link rel="stylesheet" href="./styles/pages/bonuses-page.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="header --form-page">
+            <div class="my-container header__container">
+                <a href="" class="header__logo-link">
+                    <div class="header__logo-wrap-img">
+                        <svg width="79" height="10" viewBox="0 0 79 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.828125 0.28125H8.48582V0.969814H5.02479V9.54178H4.28915V0.969814H0.828125V0.28125Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M19.3518 5.1626H13.511V9.54178H12.7754V0.28125H13.511V4.47404H19.3518V0.28125H20.0874V9.53959H19.3518V5.1626Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M25.7266 0.28125H30.8982V0.969814H26.4622V4.50035H30.4993V5.18891H26.4622V8.85322H31.0333V9.54178H25.7266V0.28125Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M35.8027 0.28125H41.2159V2.26581H37.9409V4.22405H40.8148V6.2086H37.9409V9.54178H35.8027V0.28125Z"
+                                fill="#FDFDFD" />
+                            <path d="M45.6289 0.28125H47.7671V7.55503H51.576V9.53959H45.6289V0.28125Z" fill="#FDFDFD" />
+                            <path
+                                d="M55.5859 0.28125H61.132V2.26581H57.7242V3.89292H60.731V5.87748H57.7242V7.55722H61.265V9.54178H55.5859V0.28125Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M70.6344 4.81832L73.7476 9.53959H71.2349L69.2296 6.43009L67.251 9.53959H64.7383L67.8514 4.81832L64.889 0.28125H67.4016L69.3005 3.25699L71.1175 0.28125H73.6302L70.6344 4.81832Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M76.7242 3.03578C75.9266 3.03578 75.2773 2.39326 75.2773 1.60383C75.2773 0.814389 75.9266 0.171875 76.7242 0.171875C77.5219 0.171875 78.1711 0.814389 78.1711 1.60383C78.1711 2.39326 77.5219 3.03578 76.7242 3.03578ZM76.7242 0.391163C76.0484 0.391163 75.4989 0.934997 75.4989 1.60383C75.4989 2.27265 76.0484 2.81649 76.7242 2.81649C77.4 2.81649 77.9496 2.27265 77.9496 1.60383C77.9496 0.934997 77.4 0.391163 76.7242 0.391163Z"
+                                fill="#FDFDFD" />
+                            <path
+                                d="M76.2676 2.24106V0.951651C76.3407 0.951651 76.6731 0.947266 76.7107 0.947266C77.0653 0.947266 77.1916 1.1227 77.1916 1.35953C77.1916 1.59855 77.0431 1.69723 76.9722 1.73232L77.3511 2.24106H76.9899L76.6731 1.78933H76.5623V2.24106H76.2676ZM76.5645 1.22795V1.51303H76.6731C76.7861 1.51303 76.8769 1.47356 76.8769 1.36391C76.8769 1.29155 76.8392 1.22357 76.6974 1.22357C76.6509 1.22357 76.6265 1.22576 76.5645 1.22795Z"
+                                fill="#FDFDFD" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </header>
+        <main class="main">
+            <!-- ЗАГЛУШКА ДЛЯ ПК -->
+            <div class="desktop-block">
+                <div class="my-container desktop-block__container">
+                    <img src="./assets/images/logo.svg" alt="" class="desktop-block__logo">
+                    <div class="desktop-block__text">
+                        Сайт доступен для мобильной версии <br> Откройте сайт на телефоне
+                    </div>
+                    <div class="desktop-block__icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150"
+                            fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M74.5102 149.02C115.661 149.02 149.02 115.661 149.02 74.5102C149.02 33.3593 115.661 0 74.5102 0C33.3593 0 0 33.3593 0 74.5102C0 115.661 33.3593 149.02 74.5102 149.02ZM73.6202 54.1594C65.7169 37.7454 -0.162305 49.723 73.6202 111.284C147.403 49.723 80.9769 36.6138 73.6202 54.1594Z"
+                                fill="#EBFF34" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="my-container">
+                <div class="form-page">
+                    <form action="" class="form-info">
+                        <div class="form-info__main-info">
+                            <div class="main-info__text">Выбери свой город и введи данные, чтобы получить доступ
+                                к&nbsp;закрытой продаже спецкарт:</div>
+                            <div class="main-info__inputs">
+                                <div class="my-select-wrapper">
+                                    <select name="recipientCity" id="recipientCity" class="my-select__element">
+                                        <option class="my-select__option" value="irkutsk" default>Иркутск</option>
+                                        <option class="my-select__option" value="angarsk">Ангарск</option>
+                                        <option class="my-select__option" value="krasnoyarskVesni">Красноярск. Весны
+                                        </option>
+                                        <option class="my-select__option" value="krasnoyarskUritskogo">Красноярск.
+                                            Урицкого</option>
+                                        <option class="my-select__option" value="novosibirskZyryanovskaya">
+                                            Новосибирск. Зыряновская</option>
+                                        <option class="my-select__option" value="novosibirskDusi">Новосибирск. Дуси
+                                        </option>
+                                        <option class="my-select__option" value="tyumen">Тюмень</option>
+                                        <option class="my-select__option" value="saratov">Саратов</option>
+                                        <option class="my-select__option" value="ekaterinburg">Екатеринбург</option>
+                                        <option class="my-select__option" value="ufa">Уфа</option>
+                                        <option class="my-select__option" value="chelyabinsk">Челябинск</option>
+                                    </select>
+                                    <div class="my-select-arrow">
+                                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 1L7 7L13 1" stroke="#343537" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <input type="text" name="clientName" id="clientName" class="my-input"
+                                    placeholder="Ваше имя">
+                                <input type="tel" name="phone-input" id="clientPhone" class="my-input"
+                                    placeholder="+ 7 (***) *** ** **">
+                            </div>
+                        </div>
+                        <div class="form-page__client">
+                            <div class="form-page__client-inner">
+                                <div class="form-page__client-text">Client The Flex</div>
+                                <div class="form-page__client-image-wrap">
+                                    <img src="./assets/images/main-page-client.png" alt="картинка"
+                                        class="form-page__client-img">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-page__agreements">
+                            <label class="my-checkbox-btn">
+                                <input type="checkbox" name="sendingAgree" id="sendingAgree"
+                                    class="my-checkbox-btn__old">
+                                <span class="my-checkbox-btn__new"></span>
+                                <span class="my-checkbox-btn__text">Согласна на рассылку</span>
+                            </label>
+                            <label class="my-checkbox-btn">
+                                <input type="checkbox" name="policyAgree" id="policyAgree" class="my-checkbox-btn__old">
+                                <span class="my-checkbox-btn__new"></span>
+                                <div class="my-checkbox-btn__text">Я даю согласие на обработку <a href="https://theflex.ru/privacy-policy" target="_blank">персональных&nbsp;данных</a></div>
+                            </label>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="my-button">
+                                <span class="my-button__text">далее</span>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.09528 12.0004H19.9067M19.9067 12.0004L14.6362 6.72996M19.9067 12.0004L14.6362 17.2709"
+                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="bonuses-page --display-none">
+                    <div class="your-card">
+                        <div class="your-card__inner">
+                            <div class="your-card__title">Ваша карта</div>
+                            <div class="your-card__selected"> <span class="gray-text">Срок:</span>
+                                <span class="your-card__option" id="validPeriod">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.75 7.5H2.25M12 1.5V4.5M6 1.5V4.5M6.75 12L8.25 13.5L11.625 10.125M5.85 16.5H12.15C13.4101 16.5 14.0402 16.5 14.5215 16.2548C14.9448 16.039 15.289 15.6948 15.5048 15.2715C15.75 14.7902 15.75 14.1601 15.75 12.9V6.6C15.75 5.33988 15.75 4.70982 15.5048 4.22852C15.289 3.80516 14.9448 3.46095 14.5215 3.24524C14.0402 3 13.4101 3 12.15 3H5.85C4.58988 3 3.95982 3 3.47852 3.24524C3.05516 3.46095 2.71095 3.80516 2.49524 4.22852C2.25 4.70982 2.25 5.33988 2.25 6.6V12.9C2.25 14.1601 2.25 14.7902 2.49524 15.2715C2.71095 15.6948 3.05516 16.039 3.47852 16.2548C3.95982 16.5 4.58988 16.5 5.85 16.5Z"
+                                                stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span> 10 месяцев,
+                                </span>
+                                <span class="your-card__option" id="motivator">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M10.6871 1.5H6.37046C6.23586 1.5 6.16855 1.5 6.10913 1.5205C6.05658 1.53862 6.00872 1.5682 5.96901 1.60709C5.92411 1.65107 5.89401 1.71127 5.83381 1.83167L2.68381 8.13167C2.54005 8.41919 2.46817 8.56295 2.48543 8.67981C2.50051 8.78185 2.55695 8.87318 2.64148 8.9323C2.73828 9 2.89901 9 3.22046 9H7.87464L5.62464 16.5L14.7695 7.01648C15.078 6.69653 15.2323 6.53655 15.2413 6.39966C15.2491 6.28084 15.2 6.16536 15.1091 6.08852C15.0043 6 14.782 6 14.3376 6H8.99964L10.6871 1.5Z"
+                                                stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span> мотиватор,
+                                </span>
+                                <span class="your-card__option" id="nolimit">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_1_74)">
+                                                <path
+                                                    d="M3.75 9C3.75 6.10051 6.10051 3.75 9 3.75M12.3749 5.625L8.99993 9M16.5 9C16.5 13.1421 13.1421 16.5 9 16.5C4.85786 16.5 1.5 13.1421 1.5 9C1.5 4.85786 4.85786 1.5 9 1.5C13.1421 1.5 16.5 4.85786 16.5 9ZM9.75 9C9.75 9.41421 9.41421 9.75 9 9.75C8.58579 9.75 8.25 9.41421 8.25 9C8.25 8.58579 8.58579 8.25 9 8.25C9.41421 8.25 9.75 8.58579 9.75 9Z"
+                                                    stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1_74">
+                                                    <rect width="18" height="18" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span> безлимит тренировок,
+                                </span>
+                                <span class="your-card__option" id="20-trainings">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M3.75 15L7.5 14.625L8.25 13.125M13.5 15V11.25H9.375L11.25 6.375L7.125 7.125L8.25 8.625M11.25 3.75C11.25 3.94891 11.329 4.13968 11.4697 4.28033C11.6103 4.42098 11.8011 4.5 12 4.5C12.1989 4.5 12.3897 4.42098 12.5303 4.28033C12.671 4.13968 12.75 3.94891 12.75 3.75C12.75 3.55109 12.671 3.36032 12.5303 3.21967C12.3897 3.07902 12.1989 3 12 3C11.8011 3 11.6103 3.07902 11.4697 3.21967C11.329 3.36032 11.25 3.55109 11.25 3.75Z"
+                                                stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span> 20 тренировок,
+                                </span>
+                                <span class="your-card__option" id="massage">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9 14.25C7.01088 14.25 5.10322 13.4598 3.6967 12.0533C2.29018 10.6468 1.5 8.73912 1.5 6.75C2.48491 6.75 3.46018 6.94399 4.37013 7.3209C5.28007 7.69781 6.10686 8.25026 6.8033 8.9467C7.49974 9.64314 8.05219 10.4699 8.4291 11.3799C8.80601 12.2898 9 13.2651 9 14.25ZM9 14.25C10.9891 14.25 12.8968 13.4598 14.3033 12.0533C15.7098 10.6468 16.5 8.73912 16.5 6.75C14.5109 6.75 12.6032 7.54018 11.1967 8.9467C9.79018 10.3532 9 12.2609 9 14.25ZM11.2425 8.625C11.2946 7.58136 11.1213 6.53874 10.7343 5.56809C10.3474 4.59744 9.75583 3.72154 9 3C8.24417 3.72154 7.65264 4.59744 7.26567 5.56809C6.87871 6.53874 6.70538 7.58136 6.7575 8.625"
+                                                stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                    </span> 2 <span class="gray-text">пакета массажей,</span>
+                                </span>
+                                <span class="your-card__option" id="freezing">
+                                    <span class="your-card__option-img-wrpap">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_1_165)">
+                                                <path
+                                                    d="M13.5466 6.375L4.45338 11.625M13.5466 6.375L14.3702 3.30144M13.5466 6.375L16.6202 7.19856M4.45338 11.625L1.37982 10.8014M4.45338 11.625L3.62982 14.6986M13.5466 11.6249L4.45332 6.37489M13.5466 11.6249L16.6202 10.8014M13.5466 11.6249L14.3702 14.6985M4.45332 6.37489L3.62993 3.30152M4.45332 6.37489L1.37993 7.19864M9.00001 3.75L9.00001 14.25M9.00001 3.75L6.75001 1.5M9.00001 3.75L11.25 1.5M9.00001 14.25L6.75001 16.5M9.00001 14.25L11.25 16.5"
+                                                    stroke="#E8FF21" stroke-width="1.5" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_1_165">
+                                                    <rect width="18" height="18" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </span> 15 дней <span class="gray-text">заморозки.</span>
+                                </span>
+                            </div>
+                            <div class="your-card__price">
+                                <div class="your-card__price-number">3499₽</div>
+                                <div class="your-card__price-text">/месяц</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="options">
+                        <div class="options__inner">
+                            <div class="options__items">
+                                <div class="options__item" data-opt-id="fullday">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">Полный день</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="nolimit">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">Сделать безлимитной</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+999₽/месяц</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="20-trainings">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">+20 тренировок</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="massage">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">+2 массажа</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="2-mounth">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">+2 месяца</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="15-freezing">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">заморозка 15</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="30-freezing">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">заморозка 30</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="options__item" data-opt-id="motivator">
+                                    <div class="options__item-texts">
+                                        <div class="options__item-title">+мотиватор</div>
+                                        <div class="options__item-pre-title">*мотиватормотиватормотиват</div>
+                                    </div>
+                                    <div class="options__title-action">
+                                        <div class="options__item-price">+3 000₽</div>
+                                        <div class="options__item-switch">
+                                            <label class="my-switch-lable">
+                                                <input type="checkbox" class="my-switch-main">
+                                                <span class="my-switch"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="final-page__options-inner">
+                            <button class="my-button final-page__option" data-final-btn-id="all-price">
+                                <div class="my-button__texts">
+                                    <div class="my-button__texts-top">
+                                        <span class="my-button__top-title">Оплата сразу</span>
+                                        <span class="my-button__top-text">36 000₽</span>
+                                    </div>
+                                </div>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.09528 12.0004H19.9067M19.9067 12.0004L14.6362 6.72996M19.9067 12.0004L14.6362 17.2709"
+                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </div>
+                            </button>
+                            <button class="my-button final-page__option" data-final-btn-id="plade">
+                                <div class="my-button__texts">
+                                    <div class="my-button__texts-top">
+                                        <span class="my-button__top-title">В плейд</span>
+                                        <span class="my-button__top-text">2 000₽ сейчас</span>
+                                    </div>
+                                    <div class="my-button__texts-bottom">
+                                        <span class="my-button__bottom-text">далее 3 000₽ каждые 2 недели</span>
+                                    </div>
+                                </div>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.09528 12.0004H19.9067M19.9067 12.0004L14.6362 6.72996M19.9067 12.0004L14.6362 17.2709"
+                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </div>
+                            </button>
+                            <button class="my-button final-page__option" data-final-btn-id="in-month">
+                                <div class="my-button__texts">
+                                    <div class="my-button__texts-top">
+                                        <span class="my-button__top-title">В беспроцентную рассрочку</span>
+                                    </div>
+                                    <div class="my-button__texts-bottom">
+                                        <span class="my-button__bottom-text">3 499₽ в месяц</span>
+                                    </div>
+                                </div>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.09528 12.0004H19.9067M19.9067 12.0004L14.6362 6.72996M19.9067 12.0004L14.6362 17.2709"
+                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </div>
+                            </button>
+                        </div>
+                        <div class="control-buttons">
+                            <button class="my-button next-button">
+                                <span class="my-button__text">далее</span>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.09528 12.0004H19.9067M19.9067 12.0004L14.6362 6.72996M19.9067 12.0004L14.6362 17.2709"
+                                            stroke="black" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </div>
+                            </button>
+                            <a href="https://wa.me/79782403884" target="_blank" class="my-button final-page__button --noBg">
+                                <span class="my-button__text">связь с менеджером, <br> если остались вопросы</span>
+                                <div class="my-button__icon-wrap">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M4.16667 3.33333H7.5L9.16667 7.5L7.08333 8.75C7.9758 10.5596 9.44039 12.0242 11.25 12.9167L12.5 10.8333L16.6667 12.5V15.8333C16.6667 16.2754 16.4911 16.6993 16.1785 17.0118C15.866 17.3244 15.442 17.5 15 17.5C11.7494 17.3025 8.68346 15.9221 6.38069 13.6193C4.07792 11.3165 2.69754 8.25061 2.5 4.99999C2.5 4.55797 2.67559 4.13404 2.98816 3.82148C3.30072 3.50892 3.72464 3.33333 4.16667 3.33333Z"
+                                            stroke="#F6F6F6" stroke-width="1.5" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+                            </a>
+                            <button class="back-button">
+                                назад
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/phone-mask.js"></script>
+    <script src="./assets/js/form.js"></script>
+</body>
+
+</html>

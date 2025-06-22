@@ -1,0 +1,138 @@
+/* ZERO STYLES */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/Manrope-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "Manrope";
+    src: url("../assets/fonts/Manrope-ExtraBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 800;
+}
+
+
+html,
+body {
+    height: 100%;
+    font-family: 'Manrope';
+    font-size: 13px;
+    font-weight: 500;
+    color: #FAFAFA;
+    line-height: 14px;
+    letter-spacing: -.02em;
+    background: #1C1C1C;
+    display: flex;
+    flex-direction: column;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+a {
+    color: #181818;
+    cursor: pointer;
+}
+
+ol,
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+img,
+iframe {
+    vertical-align: bottom;
+}
+
+input {
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.my-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+    overflow-x: hidden;
+    height: 100%;
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+.--white-bg {
+    background: #F6F6F6;
+}
+
+.control-buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+    padding-bottom: 15px;
+}
+
+.content { 
+    height: 100%;
+    width: 100%;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+.--display-none {
+    display: none!important;
+}
+
+.my-input.invalid {
+    color: #fa6363;
+    border: 1px solid red;
+}
+
+.my-input.invalid::placeholder {
+    color: #fa6363de;
+}
+
+.my-checkbox-btn.invalid .my-checkbox-btn__new {
+    border-color: red;
+}
+
+.validation-field {
+    display: inline-block;
+    color: #fa6363;
+    font-size: 12px;
+    margin-top: 2px;
+    margin-bottom: 15px;
+}

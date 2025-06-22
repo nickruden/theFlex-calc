@@ -1,0 +1,42 @@
+.my-switch-label {
+    height: 22px;
+}
+.my-switch-main {
+    display: none;
+}
+
+.my-switch {
+    cursor: pointer;
+    display: inline-block;
+    width: 37px;
+    height: 22px;
+    background-color: #D9D9D9;
+    border-radius: 40px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    position: relative;
+}
+
+.my-switch:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    right: 3.5px;
+    top: 3px;
+    background-color: #FFF;
+    transition: .2s;
+    border-radius: 30px;
+}
+
+.my-switch-main:checked+.my-switch {
+    background-color: #2E2E2E;
+}
+
+.my-switch-main:checked+.my-switch:before {
+    background-color: #E8FF21;
+}
+
+.my-switch-main:checked+.my-switch:before {
+    transform: translateX(-15px);
+}

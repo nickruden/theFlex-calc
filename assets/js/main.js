@@ -10,6 +10,39 @@ const formData = {
 };
 
 let selectedOptions = new Set();
+const STORAGE_KEY = "gymFormState";
+
+function saveSessionState() {
+  const state = {
+    formData,
+    selectedOptions: Array.from(selectedOptions),
+    currentPage: getCurrentPage(),
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function loadSessionState() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return null;
+  try {
+    return JSON.parse(raw);
+  } catch (e) {
+    return null;
+  }
+}
+
+function clearSessionState() {
+  localStorage.removeItem(STORAGE_KEY);
+}
+
+function getCurrentPage() {
+  const optionsBlock = document.querySelector(".options");
+  const bonusesPage = document.querySelector(".bonuses-page");
+
+  if (optionsBlock.classList.contains("--final-page")) return "final";
+  if (!bonusesPage.classList.contains("--display-none")) return "bonuses";
+  return "form";
+}
 
 const updateFormData = () => {
   formData.name = document.querySelector("#clientName").value;
@@ -17,8 +50,7 @@ const updateFormData = () => {
   formData.city = document.querySelector("#recipientCity").value;
   formData.sendingAgree = document.querySelector("#sendingAgree").checked;
   formData.selectedOptions = Array.from(selectedOptions);
-
-  console.log("Form data updated:", JSON.parse(JSON.stringify(formData)));
+  saveSessionState();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -29,9 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const bonusesPage = wrapper.querySelector(".bonuses-page");
   const optionsBlock = wrapper.querySelector(".options");
 
-  const btnNextForm = wrapper.querySelector(
-    ".form-page .control-buttons .my-button"
-  );
+  const btnNextForm = wrapper.querySelector(".form-page .control-buttons .my-button");
   const btnBackBonuses = wrapper.querySelector(".bonuses-page .back-button");
   const btnNextBonuses = wrapper.querySelector(".bonuses-page .next-button");
 
@@ -53,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
       fullday: 3500,
       "15-freezing": 990,
       "30-freezing": 1500,
-      fullday: 3000,
       "2-mounth": 3000,
     },
     angarsk: {
@@ -65,12 +94,10 @@ document.addEventListener("DOMContentLoaded", () => {
       fullday: 3000,
       "15-freezing": 3000,
       "30-freezing": 3000,
-      fullday: 3000,
       "2-mounth": 3000,
     },
   };
 
-  // Функции для работы с опциями
   const getSelectedCity = () => citySelect.value;
 
   const updateOptionPrices = (city) => {
@@ -83,11 +110,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const price = cityData[id];
 
       if (priceEl && price !== undefined) {
-        // Находим первый текстовый узел (где цена)
         const textNodes = Array.from(priceEl.childNodes).filter(
           (node) => node.nodeType === Node.TEXT_NODE
         );
-
         if (textNodes.length > 0) {
           textNodes[0].textContent = `+${price.toLocaleString()}₽`;
         } else {
@@ -103,17 +128,13 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const toggleCardOption = (optId, show) => {
-    const cardOption = document.querySelector(
-      `.your-card__option[id="${optId}"]`
-    );
+    const cardOption = document.querySelector(`.your-card__option[id="${optId}"]`);
     if (!cardOption) return;
     cardOption.style.display = show ? "inline" : "none";
   };
 
   const updateFreezingOption = () => {
-    const freezingOption = document.querySelector(
-      '.your-card__option[id="freezing"]'
-    );
+    const freezingOption = document.querySelector('.your-card__option[id="freezing"]');
     if (!freezingOption) return;
 
     const has15 = selectedOptions.has("15-freezing");
@@ -122,10 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (has15 || has30) {
       freezingOption.style.display = "inline";
       const daysText = has30 ? "30" : "15";
-      freezingOption.innerHTML = freezingOption.innerHTML.replace(
-        /\d+ дней/,
-        `${daysText} дней`
-      );
+      freezingOption.innerHTML = freezingOption.innerHTML.replace(/\d+ дней/, `${daysText} дней`);
     } else {
       freezingOption.style.display = "none";
     }
@@ -143,10 +161,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const months = selectedOptions.has("2-mounth") ? 12 : 10;
-    document.querySelector(".your-card__option[id='validPeriod']").innerHTML =
-      document
-        .querySelector(".your-card__option[id='validPeriod']")
-        .innerHTML.replace(/\d+ месяцев/, `${months} месяцев`);
+    const periodEl = document.querySelector(".your-card__option[id='validPeriod']");
+    periodEl.innerHTML = periodEl.innerHTML.replace(/\d+ месяцев/, `${months} месяцев`);
+
     updateFreezingOption();
 
     const result = Math.round(total / months);
@@ -154,6 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     formData.totalPrice = total;
     formData.monthlyPrice = result;
+
     updateFormData();
 
     const options = Array.from(
@@ -162,18 +180,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     options.forEach((el, i) => {
       const grayText = el.querySelector(".gray-text");
-
       if (grayText) {
-        // Удаляем пунктуацию в конце grayText
         grayText.textContent = grayText.textContent.replace(/[.,]\s*$/, "");
-        // Добавляем нужный символ
         grayText.textContent += i === options.length - 1 ? "." : ",";
       } else {
-        // Если grayText нет — fallback на innerHTML (например, чистый текст)
         el.innerHTML = el.innerHTML.replace(/[.,]\s*$/, "");
         el.innerHTML += i === options.length - 1 ? "." : ",";
       }
     });
+
+    saveSessionState();
   };
 
   const syncOptionState = (optId, checked) => {
@@ -211,7 +227,6 @@ document.addEventListener("DOMContentLoaded", () => {
     recalculateTotal();
   };
 
-  // Обработчики событий
   nameInput.addEventListener("input", updateFormData);
   phoneInput.addEventListener("input", updateFormData);
   sendingAgreeCheckbox.addEventListener("change", updateFormData);
@@ -243,7 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Валидация и переключение страниц
   function isValidName(value) {
     const nameRegex = /^[A-Za-zА-Яа-яЁё\s\-]{2,}$/;
     return nameRegex.test(value.trim());
@@ -306,16 +320,27 @@ document.addEventListener("DOMContentLoaded", () => {
     formPage.classList.add("--display-none");
     bonusesPage.classList.remove("--display-none");
     checkFormPage();
+    saveSessionState();
   });
 
   btnBackBonuses.addEventListener("click", () => {
     if (optionsBlock.classList.contains("--final-page")) {
       optionsBlock.classList.remove("--final-page");
       checkFormPage();
+      saveSessionState();
     } else {
       formPage.classList.remove("--display-none");
       bonusesPage.classList.add("--display-none");
       checkFormPage();
+
+      // Восстановим поля формы
+      nameInput.value = formData.name;
+      phoneInput.value = formData.phone;
+      sendingAgreeCheckbox.checked = formData.sendingAgree;
+      citySelect.value = formData.city;
+
+      updateOptionPrices(getSelectedCity());
+      updateFormData();
     }
   });
 
@@ -335,18 +360,62 @@ document.addEventListener("DOMContentLoaded", () => {
     btnNextBonuses.addEventListener("click", () => {
       optionsBlock.classList.add("--final-page");
       updatePaymentOptions();
+      saveSessionState();
     });
   }
 
-  // Инициализация
-  document
-    .querySelectorAll(".your-card__option")
-    .forEach((element) => (element.style.display = "none"));
-  document.querySelector(".your-card__option[id='validPeriod']").style.display =
-    "inline";
-  updateOptionPrices(getSelectedCity());
-  recalculateTotal();
-  updateFormData();
+  document.querySelectorAll(".your-card__option").forEach((element) => (element.style.display = "none"));
+  document.querySelector(".your-card__option[id='validPeriod']").style.display = "inline";
+
+  const savedState = loadSessionState();
+
+  // if (
+  //   !document.querySelector(".bonuses-page").classList.contains("--display-none") ||
+  //   document.querySelector(".options").classList.contains("--final-page")
+  // ) {
+  //   // Уже не form-page, ничего не делаем
+  // } else {
+  //   clearSessionState();
+  // }
+
+  if (savedState) {
+    const { formData: savedForm, selectedOptions: savedOptions, currentPage } = savedState;
+
+    nameInput.value = savedForm.name;
+    phoneInput.value = savedForm.phone;
+    citySelect.value = savedForm.city;
+    sendingAgreeCheckbox.checked = savedForm.sendingAgree;
+
+    selectedOptions = new Set(savedOptions || []);
+    savedOptions.forEach((optId) => {
+      syncOptionState(optId, true);
+    });
+
+    if (currentPage === "bonuses") {
+      formPage.classList.add("--display-none");
+      bonusesPage.classList.remove("--display-none");
+      wrapper.classList.add("--white-bg");
+      header.classList.add("--form-page");
+    }
+
+    if (currentPage === "final") {
+      formPage.classList.add("--display-none");
+      bonusesPage.classList.remove("--display-none");
+      optionsBlock.classList.add("--final-page");
+      updatePaymentOptions();
+      wrapper.classList.add("--white-bg");
+      header.classList.add("--form-page");
+    }
+
+    updateOptionPrices(getSelectedCity());
+    recalculateTotal();
+    updateFormData();
+  } else {
+    updateOptionPrices(getSelectedCity());
+    recalculateTotal();
+    updateFormData();
+  }
+
   checkFormPage();
 
   new SimpleBar(document.querySelector(".options__inner"), {

@@ -51,8 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
       massage: 3500,
       "20-trainings": 5000,
       fullday: 3500,
-      "15-freezing": 15990,
-      "30-freezing": 30150,
+      "15-freezing": 990,
+      "30-freezing": 1500,
       fullday: 3000,
       "2-mounth": 3000,
     },
@@ -83,7 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const price = cityData[id];
 
       if (priceEl && price !== undefined) {
-        priceEl.textContent = `+${price.toLocaleString()}₽`;
+        // Находим первый текстовый узел (где цена)
+        const textNodes = Array.from(priceEl.childNodes).filter(
+          (node) => node.nodeType === Node.TEXT_NODE
+        );
+
+        if (textNodes.length > 0) {
+          textNodes[0].textContent = `+${price.toLocaleString()}₽`;
+        } else {
+          priceEl.insertBefore(
+            document.createTextNode(`+${price.toLocaleString()}₽`),
+            priceEl.firstChild
+          );
+        }
       }
     });
 
@@ -143,6 +155,25 @@ document.addEventListener("DOMContentLoaded", () => {
     formData.totalPrice = total;
     formData.monthlyPrice = result;
     updateFormData();
+
+    const options = Array.from(
+      document.querySelectorAll(".your-card__option")
+    ).filter((el) => getComputedStyle(el).display === "inline");
+
+    options.forEach((el, i) => {
+      const grayText = el.querySelector(".gray-text");
+
+      if (grayText) {
+        // Удаляем пунктуацию в конце grayText
+        grayText.textContent = grayText.textContent.replace(/[.,]\s*$/, "");
+        // Добавляем нужный символ
+        grayText.textContent += i === options.length - 1 ? "." : ",";
+      } else {
+        // Если grayText нет — fallback на innerHTML (например, чистый текст)
+        el.innerHTML = el.innerHTML.replace(/[.,]\s*$/, "");
+        el.innerHTML += i === options.length - 1 ? "." : ",";
+      }
+    });
   };
 
   const syncOptionState = (optId, checked) => {
@@ -317,10 +348,9 @@ document.addEventListener("DOMContentLoaded", () => {
   recalculateTotal();
   updateFormData();
   checkFormPage();
-  
+
   new SimpleBar(document.querySelector(".options__inner"), {
     autoHide: false,
     forceVisible: true,
   });
-
 });

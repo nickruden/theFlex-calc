@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const bonusesPage = wrapper.querySelector(".bonuses-page");
   const optionsBlock = wrapper.querySelector(".options");
 
-  const btnNextForm = wrapper.querySelector(".form-page .control-buttons .my-button");
+  const btnNextForm = wrapper.querySelector(
+    ".form-page .control-buttons .my-button"
+  );
   const btnBackBonuses = wrapper.querySelector(".bonuses-page .back-button");
   const btnNextBonuses = wrapper.querySelector(".bonuses-page .next-button");
 
@@ -128,13 +130,17 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const toggleCardOption = (optId, show) => {
-    const cardOption = document.querySelector(`.your-card__option[id="${optId}"]`);
+    const cardOption = document.querySelector(
+      `.your-card__option[id="${optId}"]`
+    );
     if (!cardOption) return;
     cardOption.style.display = show ? "inline" : "none";
   };
 
   const updateFreezingOption = () => {
-    const freezingOption = document.querySelector('.your-card__option[id="freezing"]');
+    const freezingOption = document.querySelector(
+      '.your-card__option[id="freezing"]'
+    );
     if (!freezingOption) return;
 
     const has15 = selectedOptions.has("15-freezing");
@@ -143,7 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (has15 || has30) {
       freezingOption.style.display = "inline";
       const daysText = has30 ? "30" : "15";
-      freezingOption.innerHTML = freezingOption.innerHTML.replace(/\d+ дней/, `${daysText} дней`);
+      freezingOption.innerHTML = freezingOption.innerHTML.replace(
+        /\d+ дней/,
+        `${daysText} дней`
+      );
     } else {
       freezingOption.style.display = "none";
     }
@@ -161,8 +170,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const months = selectedOptions.has("2-mounth") ? 12 : 10;
-    const periodEl = document.querySelector(".your-card__option[id='validPeriod']");
-    periodEl.innerHTML = periodEl.innerHTML.replace(/\d+ месяцев/, `${months} месяцев`);
+    const periodEl = document.querySelector(
+      ".your-card__option[id='validPeriod']"
+    );
+    periodEl.innerHTML = periodEl.innerHTML.replace(
+      /\d+ месяцев/,
+      `${months} месяцев`
+    );
 
     updateFreezingOption();
 
@@ -364,8 +378,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelectorAll(".your-card__option").forEach((element) => (element.style.display = "none"));
-  document.querySelector(".your-card__option[id='validPeriod']").style.display = "inline";
+  document
+    .querySelectorAll(".your-card__option")
+    .forEach((element) => (element.style.display = "none"));
+  document.querySelector(".your-card__option[id='validPeriod']").style.display =
+    "inline";
 
   const savedState = loadSessionState();
 
@@ -379,7 +396,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // }
 
   if (savedState) {
-    const { formData: savedForm, selectedOptions: savedOptions, currentPage } = savedState;
+    const {
+      formData: savedForm,
+      selectedOptions: savedOptions,
+      currentPage,
+    } = savedState;
 
     nameInput.value = savedForm.name;
     phoneInput.value = savedForm.phone;
@@ -423,3 +444,68 @@ document.addEventListener("DOMContentLoaded", () => {
     forceVisible: true,
   });
 });
+
+
+// РАБОТА С ТАЙМЕРОМ
+const TICK_STARTED_KEY = "tickStarted";
+
+const observer = new MutationObserver((mutationsList) => {
+  for (const mutation of mutationsList) {
+    if (mutation.attributeName === "class") {
+      const bonusesPage = document.querySelector(".bonuses-page");
+      const isVisible = !bonusesPage.classList.contains("--display-none");
+
+      if (isVisible && !localStorage.getItem(TICK_STARTED_KEY)) {
+        localStorage.setItem(TICK_STARTED_KEY, "true");
+
+        setTimeout(() => {
+          const tick = Tick.DOM.find(document.querySelector(".tick"))[0];
+          if (tick) {
+            handleTickInit(tick);
+          }
+        }, 50);
+      }
+    }
+  }
+});
+
+const bonusesPage = document.querySelector(".bonuses-page");
+if (bonusesPage) {
+  observer.observe(bonusesPage, { attributes: true });
+}
+
+function handleTickInit(tick) {
+  const STORAGE_KEY = "tickDeadline";
+  const DURATION_MINUTES = 5;
+
+  let deadline;
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    deadline = new Date(saved);
+  } else {
+    const now = new Date();
+    deadline = new Date(now.getTime() + DURATION_MINUTES * 60 * 1000);
+    localStorage.setItem(STORAGE_KEY, deadline.toISOString());
+  }
+
+  const counter = Tick.count.down(deadline, { format: ["m", "s"] });
+
+  counter.onupdate = function (value) {
+    tick.value = value;
+  };
+
+  counter.onended = function () {
+    localStorage.removeItem("gymFormState");
+    
+    document.querySelectorAll(".final-page__option").forEach((el) => {
+      el.classList.add("disabled");
+      el.setAttribute("disabled", "true");
+    });
+
+    const lostText = document.querySelector(".final-page__lost-text");
+    if (lostText) {
+      lostText.style.display = "block";
+      lostText.style.animation = "fadeInUp 0.5s ease";
+    }
+  };
+}

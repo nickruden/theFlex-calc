@@ -7,6 +7,7 @@
     <title>theFlex</title>
 
     <link rel="stylesheet" href="./assets/libs/simplebar/simplebar.css">
+    <link rel="stylesheet" href="./assets/libs/flip/flip.min.css">
 
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/components/header.css">
@@ -136,7 +137,9 @@
                             <label class="my-checkbox-btn">
                                 <input type="checkbox" name="policyAgree" id="policyAgree" class="my-checkbox-btn__old">
                                 <span class="my-checkbox-btn__new"></span>
-                                <div class="my-checkbox-btn__text">Я даю согласие на обработку <a href="https://theflex.ru/privacy-policy" target="_blank">персональных&nbsp;данных</a></div>
+                                <div class="my-checkbox-btn__text">Я даю согласие на обработку <a
+                                        href="https://theflex.ru/privacy-policy"
+                                        target="_blank">персональных&nbsp;данных</a></div>
                             </label>
                         </div>
                         <div class="control-buttons">
@@ -157,6 +160,22 @@
                     </form>
                 </div>
                 <div class="bonuses-page --display-none">
+                    <div class="timer-block">
+                        <div class="tick" data-did-init="handleTickInit">
+                            <div data-repeat="true" data-layout="horizontal fit" data-transform="preset(m, s) -> delay">
+                                <div class="tick-group">
+                                    <div data-key="value" data-repeat="true" data-transform="pad(00) -> split -> delay"
+                                        class="timer-group">
+                                        <span data-view="flip"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timer-notify">
+                            <div class="timer-notify__text">Как только таймер закончится, забрать карту не получится
+                            </div>
+                        </div>
+                    </div>
                     <div class="your-card">
                         <div class="your-card__inner">
                             <div class="your-card__title">Ваша карта</div>
@@ -242,10 +261,10 @@
                                     </span> 15 дней <span class="gray-text">заморозки,</span>
                                 </span>
                             </div>
-                            <div class="your-card__price">
-                                <div class="your-card__price-number">3499₽</div>
-                                <div class="your-card__price-text">/месяц</div>
-                            </div>
+                        </div>
+                        <div class="your-card__price">
+                            <div class="your-card__price-number">3499₽</div>
+                            <div class="your-card__price-text">/мес</div>
                         </div>
                     </div>
                     <div class="options">
@@ -441,7 +460,8 @@
 
                                 </div>
                             </button>
-                            <a href="https://wa.me/79782403884" target="_blank" class="my-button final-page__button --noBg">
+                            <a href="https://wa.me/79782403884" target="_blank"
+                                class="my-button final-page__button --noBg">
                                 <span class="my-button__text">связь с менеджером, <br> если остались вопросы</span>
                                 <div class="my-button__icon-wrap">
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -465,6 +485,7 @@
     </div>
 
     <script src="./assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="./assets/libs/flip/flip.min.js"></script>
 
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/phone-mask.js"></script>

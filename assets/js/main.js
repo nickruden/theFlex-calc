@@ -53,6 +53,55 @@ const updateFormData = () => {
   saveSessionState();
 };
 
+let localTick;
+
+// РАБОТА С ТАЙМЕРОМ
+function handleTickInit(tick) {
+  console.log(tick);
+  localTick = tick;
+  if (!window.timerInitialized && localStorage.getItem("tickStarted")) {
+    console.log("Инициализация таймера");
+
+    const STORAGE_KEY = "tickDeadline";
+    const DURATION_MINUTES = 5;
+
+    let deadline;
+    const saved = localStorage.getItem(STORAGE_KEY);
+
+    if (saved) {
+      deadline = new Date(saved);
+    } else {
+      const now = new Date();
+      deadline = new Date(now.getTime() + DURATION_MINUTES * 60 * 1000);
+      localStorage.setItem(STORAGE_KEY, deadline.toISOString());
+    }
+
+    const counter = Tick.count.down(deadline, { format: ["m", "s"] });
+
+    counter.onupdate = function (value) {
+      if (tick) {
+        tick.value = value;
+      }
+    };
+
+    counter.onended = function () {
+      localStorage.removeItem("gymFormState");
+      document.querySelectorAll(".final-page__option").forEach((el) => {
+        el.classList.add("disabled");
+        el.setAttribute("disabled", "true");
+      });
+
+      const lostText = document.querySelector(".final-page__lost-text");
+      if (lostText) {
+        lostText.style.display = "block";
+        lostText.style.animation = "fadeInUp 0.5s ease";
+      }
+    };
+
+    window.timerInitialized = true; // Защита от повторной инициализации
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const wrapper = document.querySelector(".wrapper");
   const header = wrapper.querySelector(".header");
@@ -334,6 +383,14 @@ document.addEventListener("DOMContentLoaded", () => {
     formPage.classList.add("--display-none");
     bonusesPage.classList.remove("--display-none");
     checkFormPage();
+
+    if (!localStorage.getItem("tickStarted")) {
+      localStorage.setItem("tickStarted", "true");
+      handleTickInit(localTick);
+    } else {
+      handleTickInit(localTick);
+    }
+
     saveSessionState();
   });
 
@@ -443,67 +500,4 @@ document.addEventListener("DOMContentLoaded", () => {
     autoHide: false,
     forceVisible: true,
   });
-
-  // РАБОТА С ТАЙМЕРОМ
-  const TICK_STARTED_KEY = "tickStarted";
-
-  const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-      if (mutation.attributeName === "class") {
-        const bonusesPage = document.querySelector(".bonuses-page");
-        const isVisible = !bonusesPage.classList.contains("--display-none");
-
-        if (isVisible && !localStorage.getItem(TICK_STARTED_KEY)) {
-          localStorage.setItem(TICK_STARTED_KEY, "true");
-
-          setTimeout(() => {
-            const tick = Tick.DOM.find(document.querySelector(".tick"))[0];
-            if (tick) {
-              handleTickInit(tick);
-            }
-          }, 50);
-        }
-      }
-    }
-  });
-
-  if (bonusesPage) {
-    observer.observe(bonusesPage, { attributes: true });
-  }
-
-  function handleTickInit(tick) {
-    const STORAGE_KEY = "tickDeadline";
-    const DURATION_MINUTES = 5;
-
-    let deadline;
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      deadline = new Date(saved);
-    } else {
-      const now = new Date();
-      deadline = new Date(now.getTime() + DURATION_MINUTES * 60 * 1000);
-      localStorage.setItem(STORAGE_KEY, deadline.toISOString());
-    }
-
-    const counter = Tick.count.down(deadline, { format: ["m", "s"] });
-
-    counter.onupdate = function (value) {
-      tick.value = value;
-    };
-
-    counter.onended = function () {
-      localStorage.removeItem("gymFormState");
-
-      document.querySelectorAll(".final-page__option").forEach((el) => {
-        el.classList.add("disabled");
-        el.setAttribute("disabled", "true");
-      });
-
-      const lostText = document.querySelector(".final-page__lost-text");
-      if (lostText) {
-        lostText.style.display = "block";
-        lostText.style.animation = "fadeInUp 0.5s ease";
-      }
-    };
-  }
 });

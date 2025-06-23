@@ -1,5 +1,9 @@
 .header {
     padding-top: 20px;
+    display: none;
+}
+.header.--form-page {
+    display: block;
 }
 .header__container {
 }

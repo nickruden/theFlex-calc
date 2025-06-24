@@ -7,6 +7,7 @@ const formData = {
   selectedOptions: [],
   totalPrice: 0,
   monthlyPrice: 0,
+  plaitePrice: 0,
 };
 
 let selectedOptions = new Set();
@@ -86,16 +87,10 @@ function handleTickInit(tick) {
 
     counter.onended = function () {
       localStorage.removeItem("gymFormState");
-      document.querySelectorAll(".final-page__option").forEach((el) => {
-        el.classList.add("disabled");
-        el.setAttribute("disabled", "true");
-      });
-
-      const lostText = document.querySelector(".final-page__lost-text");
-      if (lostText) {
-        lostText.style.display = "block";
-        lostText.style.animation = "fadeInUp 0.5s ease";
-      }
+      // document.querySelectorAll(".final-page__option").forEach((el) => {
+      //   el.classList.add("disabled");
+      //   el.setAttribute("disabled", "true");
+      // });
     };
 
     window.timerInitialized = true; // Защита от повторной инициализации
@@ -128,13 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
     irkutsk: {
       startPrice: 26970,
       motivator: 3500,
-      nolimit: 10000,
+      nolimit: 1000,
       massage: 3500,
       "20-trainings": 5000,
       fullday: 3500,
       "15-freezing": 990,
       "30-freezing": 1500,
       "2-mounth": 3000,
+      "summer-events": 2000,
     },
     angarsk: {
       startPrice: 26970,
@@ -146,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
       "15-freezing": 3000,
       "30-freezing": 3000,
       "2-mounth": 3000,
+      "summer-events": 3000,
     },
   };
 
@@ -213,12 +210,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!cityData) return;
 
     let total = cityData.startPrice || 0;
+    const months = selectedOptions.has("2-mounth") ? 12 : 10;
 
     selectedOptions.forEach((id) => {
-      total += cityData[id] || 0;
+      if (id === "nolimit") {
+        total += 1000 * months;
+      } else {
+        total += cityData[id] || 0;
+      }
     });
 
-    const months = selectedOptions.has("2-mounth") ? 12 : 10;
     const periodEl = document.querySelector(
       ".your-card__option[id='validPeriod']"
     );
@@ -232,8 +233,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const result = Math.round(total / months);
     priceOutput.textContent = `${result.toLocaleString()}₽`;
 
+    const plaite = Math.round(total * 0.25);
+
     formData.totalPrice = total;
     formData.monthlyPrice = result;
+    formData.plaitePrice = plaite;
 
     updateFormData();
 

@@ -162,7 +162,8 @@ button {
 
 .simplebar-scrollbar[style] {
   visibility: visible !important;
-  background: rgb(205, 255, 98);
+  background: #353535;
+  border-radius: 50px;
 }
 
 /* Фикс для hover-эффектов */

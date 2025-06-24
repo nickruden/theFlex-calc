@@ -22,7 +22,7 @@
     content: "";
     height: 15px;
     width: 15px;
-    right: 3.5px;
+    left: 3.5px;
     top: 3px;
     background-color: #FFF;
     transition: .2s;
@@ -38,5 +38,5 @@
 }
 
 .my-switch-main:checked+.my-switch:before {
-    transform: translateX(-15px);
+    transform: translateX(15px);
 }

@@ -146,6 +146,35 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   };
 
+  function updateFinalPagePrices() {
+    const totalPriceEl = document.querySelector(
+      '[data-final-btn-id="all-price"] .final-page__option-price-number'
+    );
+    if (totalPriceEl) {
+      totalPriceEl.textContent = `${formData.totalPrice.toLocaleString()}₽`;
+    }
+
+    const pladeInitialEl = document.querySelector(
+      '[data-final-btn-id="plade"] .final-page__option-price-number'
+    );
+    const pladeNextEl = document.querySelector(
+      '[data-final-btn-id="plade"] .plade-end__number'
+    );
+    if (pladeInitialEl) {
+      pladeInitialEl.textContent = `${formData.plaitePrice.toLocaleString()}₽`;
+    }
+    if (pladeNextEl) {
+      pladeNextEl.textContent = `${formData.plaitePrice.toLocaleString()}}₽`;
+    }
+
+    const monthlyPriceEl = document.querySelector(
+      '[data-final-btn-id="in-month"] .final-page__option-price-number'
+    );
+    if (monthlyPriceEl) {
+      monthlyPriceEl.textContent = `${formData.monthlyPrice.toLocaleString()}₽`;
+    }
+  }
+
   const getSelectedCity = () => citySelect.value;
 
   const updateOptionPrices = (city) => {
@@ -173,6 +202,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     recalculateTotal();
+    updateFinalPagePrices();
   };
 
   const toggleCardOption = (optId, show) => {
@@ -292,6 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     recalculateTotal();
+    updateFinalPagePrices();
   };
 
   nameInput.addEventListener("input", updateFormData);
@@ -434,7 +465,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btnNextBonuses) {
     btnNextBonuses.addEventListener("click", () => {
       optionsBlock.classList.add("--final-page");
-      updatePaymentOptions();
+      updateFinalPagePrices();
       saveSessionState();
     });
   }
@@ -484,7 +515,7 @@ document.addEventListener("DOMContentLoaded", () => {
       formPage.classList.add("--display-none");
       bonusesPage.classList.remove("--display-none");
       optionsBlock.classList.add("--final-page");
-      updatePaymentOptions();
+      updateFinalPagePrices();
       wrapper.classList.add("--white-bg");
       header.classList.add("--form-page");
     }
@@ -492,10 +523,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateOptionPrices(getSelectedCity());
     recalculateTotal();
     updateFormData();
+    updateFinalPagePrices();
   } else {
     updateOptionPrices(getSelectedCity());
     recalculateTotal();
     updateFormData();
+    updateFinalPagePrices();
   }
 
   checkFormPage();

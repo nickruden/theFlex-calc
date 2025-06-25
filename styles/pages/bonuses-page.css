@@ -356,6 +356,10 @@
     animation-delay: 1.1s;
 }
 
+.options__item:nth-child(9) {
+    animation-delay: 1.2s;
+}
+
 .options.--final-page .final-page__option:nth-child(1) {
     animation-delay: 0.1s;
 }

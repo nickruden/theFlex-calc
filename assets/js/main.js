@@ -1,3 +1,30 @@
+  const optionsData = {
+    irkutsk: {
+      startPrice: 26970,
+      motivator: 3500,
+      nolimit: 1000,
+      massage: 3500,
+      "20-trainings": 5000,
+      fullday: 3500,
+      "15-freezing": 990,
+      "30-freezing": 1500,
+      "2-mounth": 3000,
+      "summer-events": 2000,
+    },
+    angarsk: {
+      startPrice: 26970,
+      motivator: 3000,
+      nolimit: 3000,
+      massage: 3000,
+      "20-trainings": 3000,
+      fullday: 3000,
+      "15-freezing": 3000,
+      "30-freezing": 3000,
+      "2-mounth": 3000,
+      "summer-events": 3000,
+    },
+  };
+
 // Глобальный объект формы
 const formData = {
   name: "",
@@ -115,33 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const citySelect = document.querySelector("#recipientCity");
   const optionItems = document.querySelectorAll(".options__item");
   const priceOutput = document.querySelector(".your-card__price-number");
-
-  const optionsData = {
-    irkutsk: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    angarsk: {
-      startPrice: 26970,
-      motivator: 3000,
-      nolimit: 3000,
-      massage: 3000,
-      "20-trainings": 3000,
-      fullday: 3000,
-      "15-freezing": 3000,
-      "30-freezing": 3000,
-      "2-mounth": 3000,
-      "summer-events": 3000,
-    },
-  };
 
   function updateFinalPagePrices() {
     const totalPriceEl = document.querySelector(
@@ -578,6 +578,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const readableCities = {
     irkutsk: "Иркутск",
     angarsk: "Ангарск",
+    krasnoyarskVesni: "Красноярск. Весны",
+    krasnoyarskUritskogo: "Красноярск. Урицкого",
+    novosibirskZyryanovskaya: "Новосибирск. Зыряновская",
+    novosibirskDusi: "Новосибирск. Дуси",
+    tyumen: "Тюмень",
+    saratov: "Саратов",
+    ekaterinburg: "Екатеринбург",
+    ufa: "Уфа",
+    chelyabinsk: "Челябинск",
   };
 
   const readableOptions = {

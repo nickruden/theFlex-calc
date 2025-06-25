@@ -58,11 +58,8 @@ let localTick;
 
 // РАБОТА С ТАЙМЕРОМ
 function handleTickInit(tick) {
-  console.log(tick);
   localTick = tick;
   if (!window.timerInitialized && localStorage.getItem("tickStarted")) {
-    console.log("Инициализация таймера");
-
     const STORAGE_KEY = "tickDeadline";
     const DURATION_MINUTES = 5;
 

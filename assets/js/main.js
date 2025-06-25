@@ -660,17 +660,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const readableCities = {
-    irkutsk: "Иркутск",
+    // irkutsk: "Иркутск",
     angarsk: "Ангарск",
-    krasnoyarskVesni: "Красноярск. Весны",
-    krasnoyarskUritskogo: "Красноярск. Урицкого",
-    novosibirskZyryanovskaya: "Новосибирск. Зыряновская",
-    novosibirskDusi: "Новосибирск. Дуси",
+    krasnoyarsk: "Красноярск",
+    novosibirsk: "Новосибирск",
     tyumen: "Тюмень",
     saratov: "Саратов",
     ekaterinburg: "Екатеринбург",
     ufa: "Уфа",
     chelyabinsk: "Челябинск",
+    kazan: "Казань",
   };
 
   const readableOptions = {

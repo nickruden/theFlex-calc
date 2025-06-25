@@ -168,7 +168,7 @@
 
 /* ФИНАЛЬНЫЕ ЭЛЕМЕНТЫ */
 .options.--final-page {
-    padding: 40px 20px 0px 20px;
+    padding: 30px 20px 0px 20px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -185,8 +185,8 @@
 .options.--final-page .final-page__options-inner {
     display: flex;
     flex-direction: column;
-    gap: 26px;
-    margin-bottom: 30px;
+    gap: 20px;
+    margin-bottom: 25px;
 }
 
 .final-page__button {
@@ -366,22 +366,6 @@
 
 .options.--final-page .final-page__option:nth-child(3) {
     animation-delay: 0.3s;
-}
-
-.final-page__option.disabled {
-  animation: fadeOut 0.3s ease forwards;
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 0;
-    transform: translateY(0);
-  }
-
-  to {
-    opacity: 0.8;
-    transform: translateY(0);
-  }
 }
 
 @keyframes fadeInUp {

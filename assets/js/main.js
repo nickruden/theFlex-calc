@@ -206,6 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const toggleCardOption = (optId, show) => {
+    if (["validPeriod", "20-trainings", "fullday"].includes(optId)) {
+      return;
+    }
+
     const cardOption = document.querySelector(
       `.your-card__option[id="${optId}"]`
     );
@@ -242,6 +246,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let total = cityData.startPrice || 0;
     const months = selectedOptions.has("2-mounth") ? 12 : 10;
 
+    const isNoLimit = selectedOptions.has("nolimit");
+    const twentyTrainingsEl = document.querySelector(
+      ".your-card__option[id='20-trainings']"
+    );
+
+    if (twentyTrainingsEl) {
+      twentyTrainingsEl.style.display = isNoLimit ? "none" : "inline";
+    }
+
     selectedOptions.forEach((id) => {
       if (id === "nolimit") {
         total += 1000 * months;
@@ -259,6 +272,28 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     updateFreezingOption();
+
+    // Обновляем отображение количества тренировок
+    const trainingEl = document.querySelector(
+      '.your-card__option[id="20-trainings"]'
+    );
+    if (trainingEl) {
+      trainingEl.innerHTML = trainingEl.innerHTML.replace(
+        /(60|80) тренировок/,
+        selectedOptions.has("20-trainings") ? "80 тренировок" : "60 тренировок"
+      );
+    }
+
+    // Обновляем отображение времени для fullday
+    const fulldayEl = document.querySelector(
+      '.your-card__option[id="fullday"]'
+    );
+    if (fulldayEl) {
+      fulldayEl.innerHTML = fulldayEl.innerHTML.replace(
+        /до\s(16:00|22:00)/,
+        selectedOptions.has("fullday") ? "до 22:00" : "до 16:00"
+      );
+    }
 
     const result = Math.round(total / months);
     priceOutput.textContent = `${result.toLocaleString()}₽`;
@@ -474,6 +509,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelectorAll(".your-card__option")
     .forEach((element) => (element.style.display = "none"));
   document.querySelector(".your-card__option[id='validPeriod']").style.display =
+    "inline";
+  document.querySelector(
+    ".your-card__option[id='20-trainings']"
+  ).style.display = "inline";
+  document.querySelector(".your-card__option[id='fullday']").style.display =
     "inline";
 
   const savedState = loadSessionState();

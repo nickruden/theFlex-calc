@@ -578,23 +578,22 @@ document.addEventListener("DOMContentLoaded", () => {
     forceVisible: true,
   });
 
-   const readableCities = {
-      irkutsk: "Иркутск",
-      angarsk: "Ангарск",
-    };
+  const readableCities = {
+    irkutsk: "Иркутск",
+    angarsk: "Ангарск",
+  };
 
-    const readableOptions = {
-      motivator: "+Мотиватор",
-      nolimit: "+Безлимит",
-      massage: "+Массаж",
-      "20-trainings": "+20 тренировок",
-      fullday: "+Полный день",
-      "15-freezing": "+15 дней заморозки",
-      "30-freezing": "+30 дней заморозки",
-      "2-mounth": "+2 месяца",
-      "summer-events": "+Летние мероприятия",
-    };
-
+  const readableOptions = {
+    motivator: "+Мотиватор",
+    nolimit: "+Безлимит",
+    massage: "+Массаж",
+    "20-trainings": "+20 тренировок",
+    fullday: "+Полный день",
+    "15-freezing": "+15 дней заморозки",
+    "30-freezing": "+30 дней заморозки",
+    "2-mounth": "+2 месяца",
+    "summer-events": "+Летние мероприятия",
+  };
 
   function generateWhatsAppLink() {
     const name = formData.name.trim();
@@ -606,11 +605,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const options = formData.selectedOptions
       .map((opt) => readableOptions[opt])
-      .filter(Boolean)
-      .join(", ");
+      .filter(Boolean);
 
-    const message = `Здравствуйте! Это ${name}, телефон ${phone}, г. ${city}, я выбрала опции ${
-      options || "без дополнительных опций"
+    let workoutsText = "60 тренировок";
+    let timeText = "дневная карта (до 16:00)";
+
+    if (options.includes("+Безлимит")) {
+      workoutsText = "безлимит";
+    }
+    if (options.includes("+Полный день")) {
+      timeText = "дневная карта (до 18:00)";
+    }
+
+    const optionsText =
+      options.length > 0 ? `опции ${options.join(", ")}` : null;
+
+    const message = `Здравствуйте! Это ${name}, телефон ${phone}, г. ${city}, я выбрала 10 месяцев, ${workoutsText}, ${timeText}${
+      optionsText ? `, ${optionsText}` : ""
     }, сумма получилась ${total}₽`;
 
     const encoded = encodeURIComponent(message);

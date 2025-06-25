@@ -577,4 +577,52 @@ document.addEventListener("DOMContentLoaded", () => {
     autoHide: false,
     forceVisible: true,
   });
+
+   const readableCities = {
+      irkutsk: "Иркутск",
+      angarsk: "Ангарск",
+    };
+
+    const readableOptions = {
+      motivator: "+Мотиватор",
+      nolimit: "+Безлимит",
+      massage: "+Массаж",
+      "20-trainings": "+20 тренировок",
+      fullday: "+Полный день",
+      "15-freezing": "+15 дней заморозки",
+      "30-freezing": "+30 дней заморозки",
+      "2-mounth": "+2 месяца",
+      "summer-events": "+Летние мероприятия",
+    };
+
+
+  function generateWhatsAppLink() {
+    const name = formData.name.trim();
+    const phone = formData.phone.trim();
+    const total = formData.totalPrice.toLocaleString();
+
+    const cityKey = formData.city;
+    const city = readableCities[cityKey];
+
+    const options = formData.selectedOptions
+      .map((opt) => readableOptions[opt])
+      .filter(Boolean)
+      .join(", ");
+
+    const message = `Здравствуйте! Это ${name}, телефон ${phone}, г. ${city}, я выбрала опции ${
+      options || "без дополнительных опций"
+    }, сумма получилась ${total}₽`;
+
+    const encoded = encodeURIComponent(message);
+
+    return `https://wa.me/79245372601?text=${encoded}&type=phone_number`;
+  }
+
+  const chatLink = document.querySelector(".final-page__button");
+  if (chatLink) {
+    chatLink.addEventListener("click", function (e) {
+      const link = generateWhatsAppLink();
+      chatLink.setAttribute("href", link);
+    });
+  }
 });

@@ -1,113 +1,113 @@
-  const optionsData = {
-    angarsk: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    kazan: {
-      startPrice: 33000,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    tyumen: {
-      startPrice: 29700,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    saratov: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    ekaterinburg: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    ufa: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    chelyabinsk: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    krasnoyarsk: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-    novosibirsk: {
-      startPrice: 26970,
-      motivator: 3500,
-      nolimit: 1000,
-      massage: 3500,
-      "20-trainings": 5000,
-      fullday: 3500,
-      "15-freezing": 990,
-      "30-freezing": 1500,
-      "2-mounth": 3000,
-      "summer-events": 2000,
-    },
-  };
+const optionsData = {
+  angarsk: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  kazan: {
+    startPrice: 33000,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  tyumen: {
+    startPrice: 29700,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  saratov: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  ekaterinburg: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  ufa: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  chelyabinsk: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  krasnoyarsk: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+  novosibirsk: {
+    startPrice: 26970,
+    motivator: 3500,
+    nolimit: 1000,
+    massage: 3500,
+    "20-trainings": 5000,
+    fullday: 3500,
+    "15-freezing": 990,
+    "30-freezing": 1500,
+    "2-mounth": 3000,
+    "summer-events": 2000,
+  },
+};
 
 // Глобальный объект формы
 const formData = {
@@ -172,7 +172,7 @@ function handleTickInit(tick) {
   localTick = tick;
   if (!window.timerInitialized && localStorage.getItem("tickStarted")) {
     const STORAGE_KEY = "tickDeadline";
-    const DURATION_MINUTES = 5;
+    const DURATION_MINUTES = 40;
 
     let deadline;
     const saved = localStorage.getItem(STORAGE_KEY);
@@ -527,9 +527,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  btnNextForm.addEventListener("click", (e) => {
+  btnNextForm.addEventListener("click", async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
+
+    // Проверяем изменения
+    const { name, phone, city } = formData;
+    const hasChanged =
+      name !== lastSentFormData.name ||
+      phone !== lastSentFormData.phone ||
+      city !== lastSentFormData.city;
+
+    if (hasChanged) {
+      await sendInitialFormToTelegram(name, phone, city);
+      lastSentFormData = { ...formData }; // Обновляем предыдущее состояние
+    }
 
     formPage.classList.add("--display-none");
     bonusesPage.classList.remove("--display-none");
@@ -697,13 +709,13 @@ document.addEventListener("DOMContentLoaded", () => {
       .filter(Boolean);
 
     let workoutsText = "60 тренировок";
-    let timeText = "дневная карта (до 16:00)";
+    let timeText = "дневная&nbsp;карта&nbsp;(до&nbsp;16:00)";
 
     if (options.includes("+Безлимит")) {
       workoutsText = "безлимит";
     }
     if (options.includes("+Полный день")) {
-      timeText = "дневная карта (до 18:00)";
+      timeText = "дневная&nbsp;карта&nbsp;(до&nbsp;18:00)";
     }
 
     const optionsText =
@@ -726,3 +738,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+const BOT_TOKEN = "7697468478:AAGm0FLdOYb3q2eh_7PZsdE4XKU3TiVo0bA";
+const CHAT_ID = "-4863296373";
+
+let lastSentFormData = {
+  name: "",
+  phone: "",
+  city: "",
+};
+
+async function sendInitialFormToTelegram(name, phone, city) {
+    const readableCities = {
+    angarsk: "Ангарск",
+    krasnoyarsk: "Красноярск",
+    novosibirsk: "Новосибирск",
+    tyumen: "Тюмень",
+    saratov: "Саратов",
+    ekaterinburg: "Екатеринбург",
+    ufa: "Уфа",
+    chelyabinsk: "Челябинск",
+    kazan: "Казань",
+  };
+
+  const text = `Новая заявка!\n\nИмя: ${name}\nТелефон: ${phone}\nГород: ${readableCities[city]}`;
+
+  try {
+    const response = await fetch(
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: text,
+          parse_mode: "HTML",
+        }),
+      }
+    );
+
+    const result = await response.json();
+
+    if (result.ok) {
+      console.log("Первичное сообщение отправлено!");
+    } else {
+      console.error("Ошибка при отправке:", result.description);
+    }
+  } catch (error) {
+    console.error("Сетевая ошибка:", error);
+  }
+}
